@@ -4,7 +4,7 @@ plex-box > DIV {
   display: flex;
   flex-flow: column;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  padding: ($grid-gutter-width-base / 2);
+  padding: ($grid-gutter-width / 2);
 
   & > header {
     margin-bottom: 15px;
