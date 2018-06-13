@@ -8,7 +8,7 @@ import { DropdownItem } from './dropdown-item.inteface';
                     <button plexRipples data-toggle="dropdown" class="btn btn-{{type}}" [ngClass]="{'dropdown-toggle': label}" type="button" [disabled]="disabled" (click)="open = !open">
                     <i *ngIf="icon" class="mdi mdi-{{icon}} mdi-md"></i> {{label}}
                     </button>
-                    <ul class="dropdown-menu" [ngClass]="{'dropdown-menu-right': right}">
+                    <ul class="dropdown-menu" [ngClass]="{show: open, 'dropdown-menu-right': right}">
                     <li *ngFor="let item of items">
                         <!--Item con router asociado-->
                         <ng-template [ngIf]="!item.divider && item.route">
@@ -40,7 +40,7 @@ export class PlexDropdownComponent {
     constructor(public plex: Plex) {
         this.open = false;
         this.disabled = false;
-        this.type = 'secondary';
+        this.type = 'primary';
         this.right = false;
     }
 }

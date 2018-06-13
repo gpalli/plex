@@ -34,9 +34,9 @@ import { DropdownItem } from './../dropdown/dropdown-item.inteface';
                             </div>
                         </div>
                         <!--Menu-->
-                        <div *ngIf="plex.menu && plex.menu.length" class="action dropdown" [ngClass]="{show: menuOpen}" (click)="menuOpen = !menuOpen">
+                        <div *ngIf="plex.menu && plex.menu.length" class="action dropdown" data-toggle="dropdown" [ngClass]="{show: menuOpen}" (click)="menuOpen = !menuOpen">
                             <i class="mdi mdi-menu"></i>
-                            <ul class="dropdown-menu dropdown-menu-right">
+                            <ul class="dropdown-menu dropdown-menu-right" [ngClass]="{show: menuOpen}">
                                 <li *ngFor="let item of plex.menu">
                                     <!--Item con router asociado-->
                                     <ng-template [ngIf]="!item.divider && item.route">
@@ -71,7 +71,7 @@ import { DropdownItem } from './../dropdown/dropdown-item.inteface';
                 </div>`,
 })
 export class PlexAppComponent implements OnInit {
-    @Input() type: String = 'inverse';
+    @Input() type: String = 'primary';
 
     public loginOpen = false;
     public menuOpen = false;

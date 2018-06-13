@@ -30,7 +30,7 @@ const RegEx_Numero = /^(\d)+$/;
                         <input #ref type="text" class="form-control" [placeholder]="placeholder" [disabled]="disabled" [readonly]="readonly" (input)="onChange($event.target.value)" (focus)="onFocus()" (focusout)="onFocusout()">
                         <span *ngIf="suffix" class="input-group-addon" [innerHTML]="suffix"></span>
                     </div>
-                    <plex-validation-messages *ngIf="(control.dirty || control.touched) && !control.valid" [control]="control"></plex-validation-messages>
+                    <plex-validation-messages  *ngIf="(control.dirty || control.touched) && !control.valid" [control]="control"></plex-validation-messages>
                 </div>`,
 })
 export class PlexPhoneComponent implements OnInit, AfterViewInit, ControlValueAccessor {
