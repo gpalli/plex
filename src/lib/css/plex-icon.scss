@@ -1,0 +1,13 @@
+plex-icon {
+    position: relative;
+
+    plex-action {
+        position: absolute;
+        background-color: white;
+        right: 0;
+        bottom: 0;
+        font-size: 0.9rem;
+        border: solid blue 2px;
+        border-radius: 102%;
+    }
+}

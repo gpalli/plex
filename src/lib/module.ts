@@ -44,6 +44,7 @@ import * as configMoment from './core/configMoment.function';
 import { SimpleNotificationsModule } from './toast/simple-notifications.module';
 import { ChartsModule } from 'ng2-charts';
 import { QuillModule } from 'ngx-quill';
+import { PlexActionComponent } from './icon/action.component';
 
 const MODULES = [
     PlexAppComponent,
@@ -67,6 +68,7 @@ const MODULES = [
     PlexPhoneComponent,
     PlexDropdownComponent,
     PlexIconComponent,
+    PlexActionComponent,
     PlexBadgeComponent,
     PlexLayoutComponent,
     PlexFooterComponent,
