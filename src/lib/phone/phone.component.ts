@@ -27,7 +27,7 @@ const RegEx_Numero = /^(\d)+$/;
                     <label *ngIf="label" class="form-control-label">{{label}}<span *ngIf="control.name && esOpcional" class="opcional"></span></label>
                     <div [ngClass]="{'input-group': prefix || suffix}">
                         <span *ngIf="prefix" class="input-group-addon" [innerHTML]="prefix"></span>
-                        <input #ref type="text" class="form-control" [placeholder]="placeholder" [disabled]="disabled" [readonly]="readonly" (input)="onChange($event.target.value)" (focus)="onFocus()" (focusout)="onFocusout()">
+                        <input #ref type="text" class="form-control" [placeholder]="placeholder" [disabled]="disabled" [readonly]="readonly" (input)="onChange($event.target.value)" (focus)="onFocus()" (blur)="onBlur()">
                         <span *ngIf="suffix" class="input-group-addon" [innerHTML]="suffix"></span>
                     </div>
                     <plex-validation-messages *ngIf="hasDanger()" [control]="control"></plex-validation-messages>
@@ -62,14 +62,14 @@ export class PlexPhoneComponent implements OnInit, AfterViewInit, ControlValueAc
     @Output() valueChange = new EventEmitter();
 
     @Output() focus = new EventEmitter();
-    @Output() focusout = new EventEmitter();
+    @Output() blur = new EventEmitter();
 
     public onFocus () {
         this.focus.emit();
     }
 
-    public onFocusout () {
-        this.focusout.emit();
+    public onBlur () {
+        this.blur.emit();
     }
 
     // Funciones públicas

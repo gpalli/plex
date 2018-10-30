@@ -27,13 +27,13 @@ import { hasRequiredValidator } from '../core/validator.functions';
       </span>
 
       <input #input type="{{password ? 'password' : 'text'}}" class="form-control" [placeholder]="placeholder" [disabled]="disabled"
-        [readonly]="readonly" (input)="onChange($event.target.value)" (change)="disabledEvent($event)" (focus)="onFocus()" (focusout)="onFocusout()">
+        [readonly]="readonly" (input)="onChange($event.target.value)" (change)="disabledEvent($event)" (focus)="onFocus()" (blur)="onBlur()">
     </div>
     <i *ngIf="!readonly && !multiline && !html && !isEmpty" class="clear-icon mdi mdi-close-circle" (click)="clearInput()"></i>
 
     <!-- Multiline -->
     <textarea [hidden]="!multiline || html" #textarea class="form-control" [placeholder]="placeholder" [disabled]="disabled" [readonly]="readonly"
-      (input)="onChange($event.target.value)" (change)="disabledEvent($event)" (focus)="onFocus()" (focusout)="onFocusout()"></textarea>
+      (input)="onChange($event.target.value)" (change)="disabledEvent($event)" (focus)="onFocus()" (blur)="onBlur()"></textarea>
 
     <!-- HTML Editor -->
     <quill-editor #quillEditor [hidden]="multiline || !html" [modules]="quill" [style]="quillStyle" [readOnly]="readonly" [placeholder]="placeholder" (onContentChanged)="onChange($event.html)"></quill-editor>
@@ -103,14 +103,14 @@ export class PlexTextComponent implements OnInit, AfterViewInit, ControlValueAcc
     // Eventos
     @Output() change = new EventEmitter();
     @Output() focus = new EventEmitter();
-    @Output() focusout = new EventEmitter();
+    @Output() blur = new EventEmitter();
 
     public onFocus() {
         this.focus.emit();
     }
 
-    public onFocusout() {
-        this.focusout.emit();
+    public onBlur() {
+        this.blur.emit();
     }
 
     // Funciones públicas

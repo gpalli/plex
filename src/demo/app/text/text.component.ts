@@ -15,11 +15,11 @@ export class TextDemoComponent implements OnInit {
     public prueba = '';
 
     onFocus() {
-        this.templateModel1.usuario = 'FOCUSED';
+        console.log('focus');
     }
 
-    onFocusout() {
-        this.templateModel1.usuario = '';
+    onBlur() {
+        console.log('blur');
     }
 
     ngOnInit() {
